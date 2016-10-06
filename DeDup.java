@@ -21,9 +21,9 @@ public class DeDup {
 	            20,17,8,15,6,2,5,10,14,12,13,7,8,9,1,2,15,12,18,10,14,20,17,16,3,6,19,
 	            13,5,11,4,7,19,16,5,9,12,3,20,7,15,17,10,6,1,8,18,4,14,13,2,11};   
 		
-		int[] first = eliminateDup1(randomIntegers);
-		int[] second = eliminateDup2(randomIntegers);
-		int[] third = eliminateDup3(randomIntegers);
+		int[] first = eliminateDupUsingSet(randomIntegers);
+		int[] second = eliminateDupUsingMap(randomIntegers);
+		int[] third = eliminateDup(randomIntegers);
 		
 		System.out.println(Arrays.toString(first));
 		System.out.println(Arrays.toString(second));
@@ -31,7 +31,7 @@ public class DeDup {
 
 	}
 	/*this will put the array elements to a set and that will avoid the duplicates*/
-	public static int[] eliminateDup1(int[] randomIntegers){
+	public static int[] eliminateDupUsingSet(int[] randomIntegers){
 		HashSet<Integer> set = new HashSet<Integer>();
 		
 		for(int i=0; i<randomIntegers.length; i++){
@@ -51,7 +51,7 @@ public class DeDup {
 	}
 
 	/*this will add the elements to a hashmap and increment the value by 1 everytime a duplicate key is found.*/
-	public static int[] eliminateDup2(int[] randomIntegers){
+	public static int[] eliminateDupUsingMap(int[] randomIntegers){
 		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
 		for(int i=0; i<randomIntegers.length; i++){
 			if(map.containsKey(randomIntegers[i])){
@@ -72,7 +72,7 @@ public class DeDup {
 	}
 	
 	/*this implementation will retain the original order*/
-	public static int[] eliminateDup3(int[] randomIntegers){
+	public static int[] eliminateDup(int[] randomIntegers){
 		List<Integer> noDupList=new ArrayList<Integer>(); 
 		for(int i=0;i<randomIntegers.length;i++){
 				int num=randomIntegers[i];
